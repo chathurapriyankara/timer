@@ -17,22 +17,6 @@ public class MainActivity extends AppCompatActivity {
         countDown();
     }
 
-//    @Override
-//    protected void onStop() {
-//        super.onStop();
-//        wasRunning = running;
-//        running = false;
-//    }
-//
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        if(wasRunning) {
-//            running = true;
-//        }
-//    }
-
-
     @Override
     protected void onPause() {
         super.onPause();
