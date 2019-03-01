@@ -8,14 +8,26 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private int countDown = 99;
-    private boolean running = false;
-    private boolean wasRunning = false;
+    private boolean running;
+    private boolean wasRunning;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if(savedInstanceState != null) {
+            countDown = savedInstanceState.getInt("countDown");
+            running = savedInstanceState.getBoolean("running");
+        }
         countDown();
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt("countDown",countDown);
+        savedInstanceState.putBoolean("running",wasRunning);
+    }
+
 
     @Override
     protected void onPause() {
